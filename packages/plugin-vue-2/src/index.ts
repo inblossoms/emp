@@ -14,17 +14,18 @@ const PluginVue2 = async ({wpChain, config}: ConfigPluginOptions) => {
   // wpChain.resolve.alias.set('vue$', 'vue/dist/vue.esm.js').clear()
   // swc 暂时不支持 jsx
   if (config.compile.compileType === 'babel') {
-    wpChain.module
-      .rule('scripts')
-      .use('babel')
-      .tap(o => {
-        const config = {
-          presets: [o.presets[0], [require('@vue/babel-preset-jsx'), {compositionAPI: true}]],
-          plugins: [o.plugins[0], o.plugins[1]], //部分插件引起报错
-        }
-        // console.log(o, 'config', config)
-        return config
-      })
+    // wpChain.module
+    //   .rule('scripts')
+    //   .use('babel')
+    //   .tap(o => {
+    //     const config = {
+    //       presets: [o.presets[0], [require('@vue/babel-preset-jsx'), {compositionAPI: true}]],
+    //       plugins: [o.plugins[0], o.plugins[1]], //部分插件引起报错
+    //     }
+    //     // console.log(o, 'config', config)
+    //     return config
+    //   })
+    wpChain.module.rule('scripts').uses.clear().end().use('babel').loader(require.resolve('babel-loader'))
   }
   // wpChain.module.rules.delete('svg')
   // svg rules

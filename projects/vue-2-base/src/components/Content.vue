@@ -1,11 +1,11 @@
 <template>
   <div>
-    <button class="button bigSize" @click="increment">Vuex Store : {{ $store.state.count }}</button>
+    <button class="button bigSize" @click="increment">Vuex Store : {{ $store.state.countStore.count }}</button>
     <p @click="showMore">More... update from base</p>
     <div class="more">
       <ul v-if="isMore === true">
         <li>
-          <button class="button" @click="increment">Vuex Store : {{ $store.state.count }}</button>
+          <button class="button" @click="increment">Vuex Store : {{ $store.state.countStore.count }}</button>
         </li>
         <li>
           <h2>{{ title }}</h2>
@@ -18,18 +18,18 @@
         </li>
       </ul>
     </div>
-    <h2>JSX Dynamic Component</h2>
-    <Hello />
+    <h2>JSX Dynamic Component!!!</h2>
+    <!-- <Hello /> -->
   </div>
 </template>
 
 <script>
 import Button from './Button.vue'
-import Hello from './Hello'
+// import Hello from './Hello'
 export default {
   components: {
     Button,
-    Hello: () => import('./Hello'),
+    // Hello: () => import('./Hello'),
     DynamicButton: () => import('./Button.vue'),
   },
   props: {
@@ -42,7 +42,11 @@ export default {
       title: 'EMP Vue2 Component From BASE!',
     }
   },
+  created() {
+    console.log('[content.vue created]')
+  },
   mounted() {
+    console.log('[content.vue mounted]')
     this.methodProps && this.methodProps()
     // console.log(this.$props)
     // console.log(this.$attrs)

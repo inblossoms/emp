@@ -12,7 +12,7 @@ module.exports = defineConfig({
   empShare: {
     name: 'vue2Project',
     remotes: {
-      '@v2b': 'vue2Base@http://localhost:9001/emp.js',
+      '@v2b': 'vue2Base@http://172.29.105.1:9001/emp.js',
     },
     // shared: ['vue/dist/vue.esm.js', 'element-ui'],
     // shared: {

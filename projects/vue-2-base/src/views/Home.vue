@@ -3,7 +3,7 @@
     <h1>SVGA COMPONENT LOGO:</h1>
     <Logo class="svg-logo" />
     <h2>JSX</h2>
-    <Hello />
+    <!-- <Hello /> -->
     <h2>Img Example in src</h2>
     <ul class="imgbox">
       <li>
@@ -25,14 +25,17 @@ import Content from '../components/Content.vue'
 import Logo from './logo.svg'
 import Table from '../components/table.vue'
 import CompositionApi from '../components/CompositionApi.vue'
-import Hello from '../components/Hello'
+// import Hello from '../components/Hello'
 export default {
   components: {
     Content,
     Logo,
     Table,
     CompositionApi,
-    Hello,
+    // Hello,
+  },
+  created() {
+    console.log('[Home.vue created]')
   },
 }
 </script>

@@ -1,12 +1,11 @@
 import Vuex from 'vuex'
-export const countStore = new Vuex.Store({
-  state: {
-    count: 0,
-  },
-  mutations: {
-    increment(state) {
-      state.count++
-    },
+import Vue from 'vue'
+import {countStore} from './countStore'
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  modules: {
+    countStore,
   },
 })
-export default countStore
+
+export default store

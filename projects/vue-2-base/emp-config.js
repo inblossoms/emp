@@ -1,4 +1,5 @@
 const vue2 = require('@efox/plugin-vue-2')
+const compile = require('@efox/emp-compile-swc')
 const {defineConfig, empStore} = require('@efox/emp')
 const esm = (name, mode, version) =>
   `https://esm.sh/${name}${version ? '@' + version : ''}${mode === 'development' ? '?dev' : ''}`
@@ -7,6 +8,10 @@ module.exports = defineConfig(({mode, env}) => {
   const target = 'es5'
   const isESM = !['es3', 'es5'].includes(target)
   return {
+    // compile,
+    // css: {
+    //   minType: 'swc',
+    // },
     plugins: [vue2],
     appEntry: 'main.js',
     server: {port: 9001},
@@ -29,20 +34,20 @@ module.exports = defineConfig(({mode, env}) => {
       //   'element-ui': {requiredVersion: '^2.0.0'},
       //   'vue-router': {requiredVersion: '^3.0.0'},
       // },
-      shareLib: !isESM
-        ? {
-            vue: 'Vue@https://unpkg.com/vue@2.6.14/dist/vue.min.js',
-            vuex: `Vuex@https://unpkg.com/vuex@3.6.2/dist/vuex.min.js`,
-            'element-ui': [
-              'ELEMENT@https://unpkg.com/element-ui/lib/index.js',
-              `https://unpkg.com/element-ui/lib/theme-chalk/index.css`,
-            ],
-          }
-        : {
-            vue: esm('vue'),
-            vuex: esm('vuex'),
-            'element-ui': esm('element-ui'),
-          },
+      // shareLib: !isESM
+      //   ? {
+      //       vue: 'Vue@https://unpkg.com/vue@2.6.14/dist/vue.min.js',
+      //       vuex: `Vuex@https://unpkg.com/vuex@3.6.2/dist/vuex.min.js`,
+      //       'element-ui': [
+      //         'ELEMENT@https://unpkg.com/element-ui/lib/index.js',
+      //         `https://unpkg.com/element-ui/lib/theme-chalk/index.css`,
+      //       ],
+      //     }
+      //   : {
+      //       vue: esm('vue'),
+      //       vuex: esm('vuex'),
+      //       'element-ui': esm('element-ui'),
+      //     },
     },
     debug: {
       clearLog: false,
