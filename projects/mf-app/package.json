@@ -14,7 +14,6 @@
   "license": "ISC",
   "devDependencies": {
     "@efox/emp": "workspace:^*",
-    "@efox/emp-compile-swc": "workspace:^1.2.2",
     "@types/react-dom": "^18.0.9",
     "@types/react-router-dom": "^5.3.3"
   },

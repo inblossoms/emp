@@ -1,11 +1,9 @@
 const {defineConfig, empStore} = require('@efox/emp')
 const vue = require('@efox/plugin-vue-2')
-const compile = require('@efox/emp-compile-swc')
 // console.log('empStore 处理全局方法', empStore)
 const target = 'es2018'
 const isESM = !['es3', 'es5'].includes(target)
 module.exports = defineConfig({
-  compile,
   css: {
     minType: 'swc',
   },

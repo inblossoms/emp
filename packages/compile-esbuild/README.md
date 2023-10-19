@@ -1,4 +1,5 @@
 # EMP Compile SWC
+> EMP 3.0默认使用 SWC
 使用 swc 代替 babel 实现模块编译
 ## 安装
 ```sh
