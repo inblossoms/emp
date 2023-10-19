@@ -30,7 +30,7 @@ export type BuildOptions = {
   staticDir?: string
   /**
    * 是否压缩 或者利用 swc 压缩
-   * @default true
+   * @default swc
    */
   minify?: boolean | 'swc' | 'esbuild'
   /**
@@ -116,7 +116,7 @@ export const initBuild = (op?: BuildOptions): RquireBuildOptions => {
       typesEmpName: 'index.d.ts',
       assetsDir: 'assets',
       staticDir: '',
-      minify: true,
+      minify: 'swc',
       imageMin: false,
       sourcemap: false,
       /**

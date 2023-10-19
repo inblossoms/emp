@@ -1,4 +1,4 @@
-# EMP ⚡ 2.0
+# EMP ⚡ 3.0
 <a href="https://www.npmjs.com/package/@efox/emp"><img src="https://img.shields.io/npm/v/@efox/emp.svg" alt="npm"></a>
 <a href="https://emp2.netlify.app"><img src="https://img.shields.io/node/v/@efox/emp.svg" alt="node"></a>
 <a href="https://emp2.netlify.app"><img src="https://img.shields.io/badge/EMP.Document-v2-blue" alt="document"></a>
@@ -22,7 +22,6 @@
 |Project|NPM|Info|Author|
 |---|---|---|---|
 |[@efox/emp](packages/emp)|[![release](https://img.shields.io/npm/v/@efox/emp.svg)](https://www.npmjs.com/package/@efox/emp)|Treasure chest|[Ken](https://github.com/ckken)|
-|[@efox/emp-compile-swc](packages/compile-swc)|[![release](https://img.shields.io/npm/v/@efox/emp-compile-swc.svg)](https://www.npmjs.com/package/@efox/emp-compile-swc)|use swc replace babel, react support only|[Ken](https://github.com/ckken)|
 |[@efox/plugin-vue-2](packages/plugin-vue-2)|[![release](https://img.shields.io/npm/v/@efox/plugin-vue-2)](https://www.npmjs.com/package/@efox/plugin-vue-2)| EMP Vue v2 plugin|[Ken](https://github.com/ckken)|
 |[@efox/plugin-vue-3](packages/plugin-vue-3)|[![release](https://img.shields.io/npm/v/@efox/plugin-vue-3)](https://www.npmjs.com/package/@efox/plugin-vue-3)| EMP Babel for Vue 3 plugin|[MAXLZ1](https://github.com/MAXLZ1)|
 |[@efox/eslint-config-react](packages/eslint-config-react)|[![release](https://img.shields.io/npm/v/@efox/eslint-config-react.svg)](https://www.npmjs.com/package/@efox/eslint-config-react)|ESLint React Config|[Ken](https://github.com/ckken)|

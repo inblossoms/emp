@@ -100,6 +100,7 @@ class WPProduction {
             ...minOptions,
           },
         }
+        // console.log('swc css min', options)
       } else if (store.config.compile.compileType === 'esbuild') {
         options = {
           minify: TerserPlugin.esbuildMinify,

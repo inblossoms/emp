@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@efox/emp": "workspace:*",
-    "emp-lib": "workspace:^1.0.0",
-    "webpack-lib": "workspace:^1.0.0"
+    "emp-lib": "workspace:*"
   }
 }
