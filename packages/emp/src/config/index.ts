@@ -188,7 +188,7 @@ export interface ModuleTransform {
   include?: RuleSetRule['include'][]
   /**
    * 构建方式 esbuild 还没解决
-   * @default babel
+   * @default swc
    */
   // parser?: 'babel' | 'swc'
   /**
@@ -277,7 +277,7 @@ export const initConfig = async (op: any = {}): Promise<ResovleConfig> => {
   //
   const moduleTransformExclude: RuleSetRule['exclude'] = {and: [/(node_modules|bower_components)/]}
   op.moduleTransform = op.moduleTransform || {}
-  // op.moduleTransform.parser = op.moduleTransform.parser || 'babel'
+  // op.moduleTransform.parser = op.moduleTransform.parser || 'swc'
   op.moduleTransform.antdTransformImport = op.moduleTransform.antdTransformImport === false ? false : true
   op.moduleTransform.useBuiltIns =
     typeof op.moduleTransform.useBuiltIns !== 'undefined' ? op.moduleTransform.useBuiltIns : 'entry'
@@ -296,7 +296,7 @@ export const initConfig = async (op: any = {}): Promise<ResovleConfig> => {
       ...op.compile,
     }
   } else {
-    const {compileType, loader} = await import('src/webpack/loader/babel-loader')
+    const {compileType, loader} = await import('src/webpack/loader/swc-loader')
     compile = {
       minify: false,
       cssminify: false,

@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@efox/emp": "workspace:^*",
-    "@efox/plugin-babel-react": "workspace:^*",
     "postcss-px-to-viewport": "^1.1.1",
     "typescript": "^4.5.2",
     "typescript-plugin-css-modules": "^3.4.0",

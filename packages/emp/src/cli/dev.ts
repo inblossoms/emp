@@ -17,9 +17,9 @@ class devServer {
     if (store.config.debug.clearLog) clearConsole()
     logTag(
       `dev server running use ${store.config.compile.compileType}`,
-      store.config.compile.compileType !== 'babel' ? 'orange' : 'blue',
+      store.config.compile.compileType === 'swc' ? 'orange' : 'blue',
     )
-    // if (store.config.compile.compileType !== 'babel') logTag(`use ${store.config.compile.compileType}`, 'purple')
+    // if (store.config.compile.compileType === 'swc') logTag(`use ${store.config.compile.compileType}`, 'purple')
     //
     const port = await getPorts(Number(config.devServer?.port) || 8000, config.devServer?.host || '0.0.0.0')
     const compiler = webpack(config)

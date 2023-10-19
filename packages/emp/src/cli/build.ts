@@ -35,9 +35,9 @@ class Build {
       `build mode ${store.config.mode}${this.isLib ? ' in [Library Mode] ' : ''} use ${
         store.config.compile.compileType
       }${store.config.css.minType === 'swc' ? '[cssmin]' : ''}`,
-      store.config.compile.compileType !== 'babel' ? 'orange' : 'blue',
+      store.config.compile.compileType === 'swc' ? 'orange' : 'blue',
     )
-    // if (store.config.compile.compileType !== 'babel') logTag(`use ${store.config.compile.compileType}`, 'purple')
+    // if (store.config.compile.compileType === 'swc') logTag(`use ${store.config.compile.compileType}`, 'purple')
     // await reporter.measureFileSizesBeforeBuild()
     webpack(this.config, (err: any, stats: any) => {
       if (err) {

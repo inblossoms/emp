@@ -25,7 +25,7 @@ module.exports = defineConfig(config => {
         headTags: [`<script>console.log('tags.headTags')</script>`],
       },
     },
-    jsCheck: true,
+    // jsCheck: true,
     cacheDir: path.resolve('../../.emp-cache'),
     // debug: {
     //   profile: true,
