@@ -70,34 +70,6 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1(typescript@4.7.4)
 
-  packages/compile-swc:
-    dependencies:
-      '@swc/core':
-        specifier: ^1.3.62
-        version: 1.3.62
-      '@swc/css':
-        specifier: ^0.0.20
-        version: 0.0.20
-      regenerator-runtime:
-        specifier: ^0.13.11
-        version: 0.13.11
-    devDependencies:
-      '@efox/emp':
-        specifier: workspace:*
-        version: link:../emp
-      '@types/webpack':
-        specifier: ^5.28.0
-        version: 5.28.0(@swc/core@1.3.62)
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      ttypescript:
-        specifier: ^1.5.13
-        version: 1.5.13(ts-node@10.9.1)(typescript@4.7.4)
-      typescript-transform-paths:
-        specifier: ^3.3.1
-        version: 3.3.1(typescript@4.7.4)
-
   packages/emp:
     dependencies:
       '@pmmmwh/react-refresh-webpack-plugin':
@@ -651,9 +623,6 @@ importers:
       '@efox/emp':
         specifier: workspace:^*
         version: link:../../packages/emp
-      '@efox/emp-compile-swc':
-        specifier: workspace:^1.2.2
-        version: link:../../packages/compile-swc
       '@types/react-dom':
         specifier: ^18.0.9
         version: 18.0.9
@@ -688,9 +657,6 @@ importers:
       '@efox/emp':
         specifier: workspace:^*
         version: link:../../packages/emp
-      '@efox/emp-compile-swc':
-        specifier: workspace:^1.2.2
-        version: link:../../packages/compile-swc
       '@types/react-dom':
         specifier: ^18.0.9
         version: 18.0.9
@@ -815,9 +781,6 @@ importers:
       '@efox/emp':
         specifier: workspace:*
         version: link:../../packages/emp
-      '@efox/emp-compile-swc':
-        specifier: workspace:^1.0.0
-        version: link:../../packages/compile-swc
       '@types/react':
         specifier: ^18.0.26
         version: 18.0.26
@@ -893,9 +856,6 @@ importers:
       '@efox/emp':
         specifier: workspace:^*
         version: link:../../packages/emp
-      '@efox/emp-compile-swc':
-        specifier: workspace:^
-        version: link:../../packages/compile-swc
       '@efox/eslint-config-vue':
         specifier: workspace:^*
         version: link:../../packages/eslint-config-vue
@@ -5085,19 +5045,6 @@ packages:
       '@types/node': 17.0.40
       tapable: 2.2.1
       webpack: 5.85.1
-    transitivePeerDependencies:
-      - '@swc/core'
-      - esbuild
-      - uglify-js
-      - webpack-cli
-    dev: true
-
-  /@types/webpack@5.28.0(@swc/core@1.3.62):
-    resolution: {integrity: sha512-8cP0CzcxUiFuA9xGJkfeVpqmWTk9nx6CWwamRGCj95ph1SmlRRk9KlCZ6avhCbZd4L68LvYT6l1kpdEnQXrF8w==}
-    dependencies:
-      '@types/node': 17.0.40
-      tapable: 2.2.1
-      webpack: 5.85.1(@swc/core@1.3.62)
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
@@ -16492,31 +16439,6 @@ packages:
       webpack: 5.89.0(@swc/core@1.3.62)
     dev: false
 
-  /terser-webpack-plugin@5.3.9(@swc/core@1.3.62)(webpack@5.85.1):
-    resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      '@swc/core': '*'
-      esbuild: '*'
-      uglify-js: '*'
-      webpack: ^5.1.0
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      esbuild:
-        optional: true
-      uglify-js:
-        optional: true
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.18
-      '@swc/core': 1.3.62
-      jest-worker: 27.5.1
-      schema-utils: 3.3.0
-      serialize-javascript: 6.0.1
-      terser: 5.17.7
-      webpack: 5.85.1(@swc/core@1.3.62)
-    dev: true
-
   /terser-webpack-plugin@5.3.9(@swc/core@1.3.62)(webpack@5.89.0):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
     engines: {node: '>= 10.13.0'}
@@ -16789,7 +16711,7 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  /ts-node@10.9.1(@swc/core@1.3.62)(@types/node@16.11.9)(typescript@4.7.4):
+  /ts-node@10.9.1(@types/node@16.11.9)(typescript@4.7.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -16804,7 +16726,6 @@ packages:
         optional: true
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
-      '@swc/core': 1.3.62
       '@tsconfig/node10': 1.0.9
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
@@ -16875,7 +16796,7 @@ packages:
       typescript: '>=3.2.2'
     dependencies:
       resolve: 1.22.0
-      ts-node: 10.9.1(@swc/core@1.3.62)(@types/node@16.11.9)(typescript@4.7.4)
+      ts-node: 10.9.1(@types/node@16.11.9)(typescript@4.7.4)
       typescript: 4.7.4
     dev: true
 
@@ -17887,46 +17808,6 @@ packages:
       schema-utils: 3.1.2
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.9(webpack@5.85.1)
-      watchpack: 2.4.0
-      webpack-sources: 3.2.3
-    transitivePeerDependencies:
-      - '@swc/core'
-      - esbuild
-      - uglify-js
-    dev: true
-
-  /webpack@5.85.1(@swc/core@1.3.62):
-    resolution: {integrity: sha512-xTb7MRf4LY8Z5rzn7aIx4TDrwYJrjcHnIfU1TqtyZOoObyuGSpAUwIvVuqq5wPnv7WEgQr8UvO1q/dgoGG4HjA==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-    peerDependencies:
-      webpack-cli: '*'
-    peerDependenciesMeta:
-      webpack-cli:
-        optional: true
-    dependencies:
-      '@types/eslint-scope': 3.7.3
-      '@types/estree': 1.0.1
-      '@webassemblyjs/ast': 1.11.6
-      '@webassemblyjs/wasm-edit': 1.11.6
-      '@webassemblyjs/wasm-parser': 1.11.6
-      acorn: 8.8.2
-      acorn-import-assertions: 1.9.0(acorn@8.8.2)
-      browserslist: 4.21.5
-      chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.14.1
-      es-module-lexer: 1.2.1
-      eslint-scope: 5.1.1
-      events: 3.3.0
-      glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.11
-      json-parse-even-better-errors: 2.3.1
-      loader-runner: 4.3.0
-      mime-types: 2.1.35
-      neo-async: 2.6.2
-      schema-utils: 3.1.2
-      tapable: 2.2.1
-      terser-webpack-plugin: 5.3.9(@swc/core@1.3.62)(webpack@5.85.1)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:

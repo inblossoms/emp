@@ -1,7 +1,6 @@
 const {defineConfig} = require('@efox/emp')
 module.exports = defineConfig(() => {
   return {
-    compile,
     server: {
       port: 8881,
     },
