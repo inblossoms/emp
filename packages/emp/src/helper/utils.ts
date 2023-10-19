@@ -21,3 +21,17 @@ export const vCompare = (preVersion = '', lastVersion = ''): number => {
 export function clearConsole() {
   process.stdout.write(process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H')
 }
+export function deepAssign<T>(target: any, ...sources: any): T {
+  for (const source of sources) {
+    for (const k in source) {
+      const vs = source[k],
+        vt = target[k]
+      if (Object(vs) == vs && Object(vt) === vt) {
+        target[k] = deepAssign(vt, vs)
+        continue
+      }
+      target[k] = source[k]
+    }
+  }
+  return target
+}

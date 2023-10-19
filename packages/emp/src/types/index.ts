@@ -4,6 +4,8 @@ export * from './modulefederation'
 export * from './libMode'
 import {HtmlOptions} from 'src/config/html'
 import {LoggerType} from 'src/helper/logger'
+import type {Options as SWCOptionsType} from '@swc/core'
+export {SWCOptionsType}
 //
 import {Configuration, ResolveOptions} from 'webpack'
 export type modeType = 'development' | 'production' | 'none' | undefined
@@ -79,6 +81,7 @@ export type CompileType = {
   compileType: CompileLoaderNameType
   minify?: boolean
   cssminify?: boolean
+  swcOptions?: SWCOptionsType
 }
 //
 export type JscTarget =

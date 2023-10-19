@@ -11,6 +11,7 @@ import {
   CompileType,
   CompileLoaderType,
   CompileLoaderNameType,
+  SWCOptionsType,
 } from 'src/types'
 import {ExternalsType} from 'src/types/externals'
 import {ConfigPluginType} from 'src/config/plugins'
@@ -194,7 +195,7 @@ export interface ModuleTransform {
   /**
    * 是否按需加载antd 后续考虑开放所有配置选项
    * swc 与 Babel 有所不同
-   * @default true
+   * @default false
    */
   antdTransformImport?: boolean
   /**
@@ -239,6 +240,7 @@ export type ResovleConfig = Override<
       compileType: CompileLoaderNameType
       minify: boolean
       cssminify: boolean
+      swcOptions?: SWCOptionsType
     }
     css: CSSOptions
   }
@@ -278,7 +280,7 @@ export const initConfig = async (op: any = {}): Promise<ResovleConfig> => {
   const moduleTransformExclude: RuleSetRule['exclude'] = {and: [/(node_modules|bower_components)/]}
   op.moduleTransform = op.moduleTransform || {}
   // op.moduleTransform.parser = op.moduleTransform.parser || 'swc'
-  op.moduleTransform.antdTransformImport = op.moduleTransform.antdTransformImport === false ? false : true
+  op.moduleTransform.antdTransformImport = op.moduleTransform.antdTransformImport === true ? true : false
   op.moduleTransform.useBuiltIns =
     typeof op.moduleTransform.useBuiltIns !== 'undefined' ? op.moduleTransform.useBuiltIns : 'entry'
   if (op.moduleTransform.exclude) {

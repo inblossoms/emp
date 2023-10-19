@@ -1,44 +1,44 @@
 import type webpack from 'webpack'
 import {TransformConfig, Options, JscConfig, transformSync, transform} from '@swc/core'
 import {ResovleConfig} from 'src'
+import {deepAssign} from 'src/helper/utils'
 
 class SWCOpt {
   isTypescript = false
-  isReact = false
   config: ResovleConfig
   constructor(options: ResovleConfig) {
     this.config = options
   }
-  resetType(isTypescript: boolean, isReact: boolean) {
-    this.isReact = isReact && !!this.config.reactVersion
+  resetType(isTypescript: boolean, isReact?: boolean) {
     this.isTypescript = isTypescript
   }
   get parser(): JscConfig['parser'] {
     if (this.isTypescript) {
       return {
         syntax: 'typescript',
-        tsx: this.config.build.jsToJsx || this.isReact,
+        // tsx: this.config.build.jsToJsx || this.isReact,
+        tsx: true,
         decorators: true,
         dynamicImport: true, //
       }
     }
     return {
       syntax: 'ecmascript',
-      jsx: this.config.build.jsToJsx || this.isReact,
+      // jsx: this.config.build.jsToJsx || this.isReact,
+      jsx: true,
       decorators: true,
+      dynamicImport: true,
       decoratorsBeforeExport: false,
     }
   }
   get react(): TransformConfig['react'] {
     const isDev = this.config.mode === 'development'
-    return this.isReact
-      ? {
-          runtime: this.config.reactRuntime || 'classic',
-          refresh: isDev,
-          development: isDev,
-          useBuiltins: false,
-        }
-      : undefined
+    return {
+      runtime: this.config.reactRuntime || 'classic',
+      refresh: isDev,
+      development: isDev,
+      useBuiltins: false,
+    }
   }
 }
 /**
@@ -58,15 +58,15 @@ async function SWCLoader(
   const isESM = !['es3', 'es5'].includes(config.build.target)
   //
   const isTypescript = ['.ts', '.tsx'].some(p => this.resourcePath.endsWith(p))
-  const isReact = ['.jsx', '.tsx', '.svg'].some(p => this.resourcePath.endsWith(p))
+  // const isReact = ['.jsx', '.tsx', '.svg'].some(p => this.resourcePath.endsWith(p))
   // const isVue = this.resourcePath.endsWith('.vue')
   // if (isVue) {
   //   isTypescript = true
   //   isReact = false
   // }
-  swcOpt.resetType(isTypescript, isReact)
+  swcOpt.resetType(isTypescript)
   const {parser, react} = swcOpt
-  const swcOptions: Options = {
+  let swcOptions: Options = {
     sourceFileName: this.resourcePath,
     sourceMaps: this.sourceMap,
     jsc: {
@@ -112,6 +112,10 @@ async function SWCLoader(
   }
   //
   try {
+    if (config.compile.swcOptions) {
+      swcOptions = deepAssign(swcOptions, config.compile.swcOptions)
+      console.log('[swcOptions]', JSON.stringify(swcOptions, null, 2))
+    }
     const {code, map} = config.build.sync ? transformSync(source, swcOptions) : await transform(source, swcOptions)
     // logger.info('code', JSON.stringify(swcOptions, null, 2))
     done(null, code, map && JSON.parse(map))
